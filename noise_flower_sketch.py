@@ -10,13 +10,12 @@ def setup():
     radius = height / 2
 
 def draw():
-    translate(frameCount, 0)
     center_x = width / 2
     center_y = height / 2
-    
+
     global TOTAL_DEGREES, radius
 
-    
+
     beginShape()
     for i in range(TOTAL_DEGREES):
         noiseFactor = noise(i * 0.02, float(frameCount) / 150)
@@ -24,8 +23,8 @@ def draw():
         y = center_y + radius * sin(radians(i)) * noiseFactor
         curveVertex(x, y)
     endShape(CLOSE)
-    
+
     radius -= 1
-    
+
     if radius == 0:
         noLoop()
